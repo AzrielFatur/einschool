@@ -1,0 +1,47 @@
+.breadcump {
+    margin-top: 20px;
+}
+
+.breadcump h2 {
+    font-family: Poppins, sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+}
+
+.panel .sub-panel {
+    margin-top: 15px;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 10px;
+    background: linear-gradient(to right, #7BB6E6, #3F9AE9);
+}
+
+.panel .sub-panel img {
+    width: 100px;
+}
+
+
+.panel .sub-panel .detail-panel {
+    font-size: 32px;
+    left: 160px;
+    position: absolute;
+    font-family: Poppins, sans-serif;
+    color: white;
+    font-weight: 600;
+}
+
+.panel .sub-panel .detail-panel .btn-info {
+    margin-top: 5px;
+    background-color: #ABD1F1;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 12px;
+    color: #1C81D7;
+}
+
+.panel .sub-panel .detail-panel .type {
+    margin-top: -10px;
+    font-weight: 300;
+    font-size: 14px;
+}

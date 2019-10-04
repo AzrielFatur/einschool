@@ -1,0 +1,46 @@
+.btn-primary {
+    background: linear-gradient(to right, #7BB6E6, #3F9AE9);
+    border: #3F9AE9;
+    border-radius: 100px;
+    font-size: 14px;
+    padding: 7px 25px;
+    font-family: Poppins, sans-serif;
+}
+
+.btn-danger {
+    background: linear-gradient(to right, #E67B82, #E93F3F);
+    color: white !important;
+    border: #E93F3F;
+    border-radius: 100px;
+    font-size: 14px;
+    padding: 7px 25px;
+    font-family: Poppins, sans-serif;
+}
+
+.btn-warning {
+    background: linear-gradient(to right, #FBE284, #F5D55C);
+    color: white !important;
+    border: #F5D55C;
+    border-radius: 100px;
+    font-size: 14px;
+    padding: 7px 25px;
+    font-family: Poppins, sans-serif;
+}
+
+.btn-primary-sm {
+    background: linear-gradient(to right, #7BB6E6, #3F9AE9);
+    color: white !important;
+    border: #3F9AE9;
+}
+
+.btn-danger-sm {
+    background: linear-gradient(to right, #E67B82, #E93F3F);
+    color: white !important;
+    border: #E93F3F;
+}
+
+.btn-warning-sm {
+    background: linear-gradient(to right, #FBE284, #F5D55C );
+    color: white !important;
+    border: #F5D55C;
+}
