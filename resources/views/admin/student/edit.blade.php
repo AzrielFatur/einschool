@@ -82,10 +82,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer text-center">
-                    <button class="btn btn-primary" type="submit">Kirim</button>
-                    <a href="{{ route('student.index') }}" class="btn btn-danger">Cancel</a>
-                </div>
             </div>
             <div class="col-sm-4">
                 <a href="javascript:changeProfile()">
@@ -94,6 +90,12 @@
                         <input type="file" value="{{ asset('storage/image/'.$student->photo) }}" name="photo" id="image" style="display: none;"/>
                     </div>
                 </a>
+            </div>
+            <div class="col-sm-8">
+                <div class="footer text-center">
+                    <button class="btn btn-primary" type="submit">Kirim</button>
+                    <a href="{{ route('student.index') }}" class="btn btn-danger">Cancel</a>
+                </div>
             </div>
         </div>
         </form>
