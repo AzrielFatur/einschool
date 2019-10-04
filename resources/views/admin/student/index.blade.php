@@ -1,0 +1,94 @@
+@extends('layouts.EinApp')
+
+@section('content')
+
+    @if(session('alert-success'))
+    <div class="alert alert-success" role="alert">
+        Data has been <a href="#" class="alert-link">Update</a>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
+        <div class="breadcump">
+            <h2 class="float-left">Data Management <small> > Students</small></h2>
+            <a class="btn btn-primary float-right" href="{{ route('student.create') }}">Tambah Murid</a>
+        </div>
+        <br><br><br>
+        <div class="table-responsive">
+            <table class="table table-bordered" id="class">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>NIS</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        @section('script')
+        <script type="text/javascript">
+            $(document).ready( function () {
+                let table = $('#class').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('student.index') }}",
+                    columns: [
+                        {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                        {data: 'name', name: 'name'},
+                        {data: 'nis', name: 'nis'},
+                        {data: 'email', name: 'email'},
+                        {data: 'phone_number', name: 'phone_number'},
+                        {data: 'action', name: 'action', orderable: false, searchable: true},
+                    ]
+                });
+            });
+        </script>
+
+        <script>
+            $(document).on('click', '.button-sweet', function (e) {
+                e.preventDefault();
+                var id = $(this).data('id');
+                Swal.fire({
+                    title: "Are you sure to deleted this data?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    confirmButtonText: "Yes! Delete it!",
+                    cancelButtonColor: '#3085d6',
+                    cancelButtonText: "Cancel",
+                    closeOnConfirm: false,
+                    confirmButtonClass: "btn-danger",
+                    closeOnCancel: false
+                    })
+                    .then((result) => {
+                    if (result.value) {
+                        $.ajax({
+                            type: "DELETE",
+                            url : "{{ url('/data-management/student/destroy/') }}/"+id,
+                            dataType: "JSON",
+                            data : {'_method' : 'DESTROY',
+                                    '_token' : '{{ csrf_token() }}' },
+                            success: function (data) {
+                                Swal.fire({
+                                    title: "Data berhasil di hapus!",
+                                    type: "success",
+                                    }).then(function(){ 
+                                        location.reload();
+                                    }
+                                );
+                            }         
+                        })
+                    }
+                });                
+            });
+        </script>
+
+        @endsection
+@endsection
