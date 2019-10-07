@@ -46,7 +46,7 @@ body {
   background: transparent;
 }
 
-#sidebar-wrapper .list-active {
+#sidebar-wrapper .active {
   background: #78B5E8;
   border-radius: 20px;
 }

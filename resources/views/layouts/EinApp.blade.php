@@ -34,8 +34,8 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading text-center"><img src="{{asset('storage/vendor/image/Logo.png')}}" width="200px"></div>
       <div class="list-group list-group-flush">
-        <a href="{{ route('home') }}" class="list-group-item list-group-item-action list-active"><img src="{{ asset('storage/vendor/image/Dashboard.png') }}"> Dashboard</a>
-        <a href="{{ route('data-management.index') }}" class="list-group-item list-group-item-action"><img src="{{ asset('storage/vendor/image/folder.png') }}"> Data Management</a>
+        <a href="{{ route('home') }}" class="list-group-item list-group-item-action {{ active('home') }}"><img src="{{ asset('storage/vendor/image/Dashboard.png') }}"> Dashboard</a>
+        <a href="{{ route('data-management.index') }}" class="list-group-item list-group-item-action {{ active(['data-management.index', 'data-management/*']) }}"><img src="{{ asset('storage/vendor/image/folder.png') }}"> Data Management</a>
         <a href="#" class="list-group-item list-group-item-action"><img src="{{ asset('storage/vendor/image/account.png') }}"> My Account</a>
         <a href="#" class="list-group-item list-group-item-action"><img src="{{ asset('storage/vendor/image/setting.png') }}"> Setting</a>
         <a href="{{ route('logout') }}" class="list-group-item list-group-item-action" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><img src="{{ asset('storage/vendor/image/exit.png') }}"> Logout</a>
@@ -58,8 +58,8 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
