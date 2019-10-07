@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use App\User;
+use Spatie\Image\Image;
 use Illuminate\Http\Request;
 
-class DataManagement extends Controller
+class MyAccountController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,7 +26,7 @@ class DataManagement extends Controller
      */
     public function index()
     {
-        return view('admin.data-management.index', ['title' => 'Data Management']);
+        //
     }
 
     /**
@@ -64,9 +67,9 @@ class DataManagement extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('admin.my-account.edit', ['title' => 'My Account']);        
     }
 
     /**
@@ -76,9 +79,28 @@ class DataManagement extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        if ($request->hasFile('photo')) {
+            $images = $request->file('photo');
+            Image::load($images)->save();
+            $name = 'user'.'_'.Auth::user()->name.'_'.date('d_m_y_h_m_s').'.'.$images->extension();
+            $path = 'storage/image/user/';
+            $images->move($path,$name);
+        }
+        
+        if ($request->has('password')) {
+            $request->merge(['password' => bcrypt($request->password)]);
+        } else {
+            $request->merge(['password' => $user->password]);
+        }
+        
+        $user->fill($request->all());
+        $user->photo = $name;
+        $user->save();
+        
+        return back()->with('alert-success', 'Berhasil diubah!');
+        
     }
 
     /**

@@ -36,7 +36,7 @@
       <div class="list-group list-group-flush">
         <a href="{{ route('home') }}" class="list-group-item list-group-item-action {{ active('home') }}"><img src="{{ asset('storage/vendor/image/Dashboard.png') }}"> Dashboard</a>
         <a href="{{ route('data-management.index') }}" class="list-group-item list-group-item-action {{ active(['data-management.index', 'data-management/*']) }}"><img src="{{ asset('storage/vendor/image/folder.png') }}"> Data Management</a>
-        <a href="#" class="list-group-item list-group-item-action"><img src="{{ asset('storage/vendor/image/account.png') }}"> My Account</a>
+        <a href="{{ route('my-account.edit', Auth::user()->id) }}" class="list-group-item list-group-item-action {{ active(['my-account.edit', Auth::user()->id]) }}"><img src="{{ asset('storage/vendor/image/account.png') }}"> My Account</a>
         <a href="#" class="list-group-item list-group-item-action"><img src="{{ asset('storage/vendor/image/setting.png') }}"> Setting</a>
         <a href="{{ route('logout') }}" class="list-group-item list-group-item-action" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><img src="{{ asset('storage/vendor/image/exit.png') }}"> Logout</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

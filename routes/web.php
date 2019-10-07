@@ -47,6 +47,9 @@ Route::get('/data-management/student/edit/{student}', 'StudentController@edit')-
 Route::put('/data-management/student/update/{student}', 'StudentController@update')->name('student.update');
 Route::delete('/data-management/student/destroy/{student}', 'StudentController@destroy')->name('student.destroy');
 
+// My Account
+Route::get('/my-account/edit/{user}', 'MyAccountController@edit')->name('my-account.edit');
+Route::put('/my-account/update/{user}', 'MyAccountController@update')->name('my-account.update');
 
 Auth::routes();
 
