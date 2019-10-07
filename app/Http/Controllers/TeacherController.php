@@ -112,6 +112,7 @@ class TeacherController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
+        $teacher->fill($request->all());
         if ($request->hasFile('photo')) {
             $images = $request->file('photo');
             Image::load($images)->save();
@@ -120,7 +121,6 @@ class TeacherController extends Controller
             $images->move($path,$name);
             $teacher->photo = $name;
         }
-        $teacher->fill($request->all());
         $teacher->photo = $name;
         // $teacher->name = $request->name;
         // $teacher->nis = $request->nis;

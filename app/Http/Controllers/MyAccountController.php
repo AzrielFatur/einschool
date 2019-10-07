@@ -81,13 +81,6 @@ class MyAccountController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        if ($request->hasFile('photo')) {
-            $images = $request->file('photo');
-            Image::load($images)->save();
-            $name = 'user'.'_'.Auth::user()->name.'_'.date('d_m_y_h_m_s').'.'.$images->extension();
-            $path = 'storage/image/user/';
-            $images->move($path,$name);
-        }
         
         if ($request->has('password')) {
             $request->merge(['password' => bcrypt($request->password)]);
@@ -96,7 +89,14 @@ class MyAccountController extends Controller
         }
         
         $user->fill($request->all());
-        $user->photo = $name;
+        if ($request->hasFile('photo')) {
+            $images = $request->file('photo');
+            Image::load($images)->save();
+            $name = 'user'.'_'.Auth::user()->name.'_'.date('d_m_y_h_m_s').'.'.$images->extension();
+            $path = 'storage/image/user/';
+            $images->move($path,$name);
+            $user->photo = $name;
+        }
         $user->save();
         
         return back()->with('alert-success', 'Berhasil diubah!');
