@@ -48,7 +48,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">+62</span>
                             </div>
-                            <input type="text" class="form-control" value="{{ Auth::user()->phone_number }}" placeholder="Phone Number">
+                            <input type="text" name="phone_number" class="form-control" value="{{ Auth::user()->phone_number }}" placeholder="Phone Number">
                         </div>
                     </div>
                     <div class="col-sm-12">
