@@ -87,43 +87,8 @@
                 </div>
             </div>
             <div class="col-sm-4">
-                <a href="javascript:changeProfile()">
-                    <div class="upload">
-                        <img id="preview" src="{{ asset('storage/image/'.$student->photo) }}" width="100%"/><br/>
-                        <input type="file" name="file" id="image" style="display: none;"/>
-                    </div>
-                </a>
+                <img id="preview" src="{{ asset('storage/image/'.$student->photo) }}" width="100%"/><br/>
             </div>
         </div>
         </form>
-
-        @section('script')
-        <script>
-            function changeProfile() {
-                $('#image').click();
-            }
-            $('#image').change(function () {
-                var imgPath = this.value;
-                var ext = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
-                if (ext == "gif" || ext == "png" || ext == "jpg" || ext == "jpeg")
-                    readURL(this);
-                else
-                    alert("Please select image file (jpg, jpeg, png).")
-            });
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.readAsDataURL(input.files[0]);
-                    reader.onload = function (e) {
-                        $('#preview').attr('src', e.target.result);
-                // $("#remove").val(0);
-                    };
-                }
-            }
-            function removeImage() {
-                $('#preview').attr('src', '{{ asset('storage/vendor/image/No Image.png') }}');
-                // $("#remove").val(1);
-            }
-        </script>
-        @endsection
 @endsection
