@@ -32,7 +32,7 @@
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading text-center"><img src="{{asset('storage/vendor/image/Logo.png')}}" width="200px"></div>
+      <div class="sidebar-heading text-center"><img src="{{asset('storage/vendor/image/MTs-Miftahul.png')}}" width="250px"></div>
       <div class="list-group list-group-flush">
         <a href="{{ route('home') }}" class="list-group-item list-group-item-action {{ active('home') }}"><img src="{{ asset('storage/vendor/image/Dashboard.png') }}"> Dashboard</a>
         <a href="{{ route('data-management.index') }}" class="list-group-item list-group-item-action {{ active(['data-management.index', 'data-management/*']) }}"><img src="{{ asset('storage/vendor/image/folder.png') }}"> Data Management</a>

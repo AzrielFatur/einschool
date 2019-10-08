@@ -13,7 +13,7 @@
                             <img src="{{ asset('storage/vendor/image/Graduation.png') }}" width="100%">
                         </div>
                         <div class="col-sm-12"> -->
-                            <img src="{{ asset('storage/vendor/image/Logo-blue.png') }}" width="250px">
+                            <img src="{{ asset('storage/vendor/image/MTs-Miftahul.png') }}" width="350px">
                             <form method="POST" action="{{ route('login') }}" class="mt-5">
                             @csrf
                                 <div class="form-group">
