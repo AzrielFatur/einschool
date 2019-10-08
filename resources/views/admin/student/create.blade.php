@@ -13,19 +13,19 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="Name">Nama</label>
-                            <input type="text" name="name" class="form-control" placeholder="Nama">
+                            <input type="text" name="name" class="form-control" required placeholder="Nama">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="Name">Nomor Induk Siswa</label>
-                            <input type="text" name="nis" class="form-control" placeholder="Nomor Induk Siswa">
+                            <input type="text" name="nis" class="form-control" required placeholder="Nomor Induk Siswa">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="Name">Kelas</label>
-                            <select name="grade_id" class="form-control">
+                            <select name="grade_id" required class="form-control">
                                 <option value="" selected>Pilih satu</option>
                                 @foreach($grades as $grade)
                                     <option value="{{$grade->id}}">{{$grade->class_name}}</option>
@@ -36,13 +36,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="Name">Tempat tanggal lahir</label>
-                            <input type="date" name="dateofbirth" class="form-control">
+                            <input type="date" required name="dateofbirth" class="form-control">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="gender">Jenis Kelamin</label>
-                            <select name="gender" class="form-control">
+                            <select name="gender" required class="form-control">
                                 <option value="" selected>Pilih satu</option>
                                 <option value="Laki - laki">Laki - laki</option>
                                 <option value="Perempuan">Perempuan</option>
@@ -52,7 +52,7 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="religion">Agama</label>
-                            <select name="religion" class="form-control">
+                            <select name="religion" required class="form-control">
                                 <option value="" selected>Pilih satu</option>
                                 <option value="Islam">Islam</option>
                                 <option value="Kristen">Kristen</option>
@@ -65,19 +65,19 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" name="email" class="form-control" placeholder="Email">
+                            <input type="email" name="email" class="form-control" required placeholder="Email">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="phone_number">Nomor Telpon</label>
-                            <input type="text" name="phone_number" class="form-control" placeholder="Nomor Telpon">
+                            <input type="text" name="phone_number" class="form-control" required placeholder="Nomor Telpon">
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label for="address">Address</label>
-                            <textarea name="address" class="form-control" placeholder="Alamat"></textarea>
+                            <textarea name="address" class="form-control" required placeholder="Alamat"></textarea>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                 <a href="javascript:changeProfile()">
                     <div class="upload">
                         <img id="preview" src="{{ asset('storage/vendor/image/No Image.png') }}" width="100%"/><br/>
-                        <input type="file" name="photo" id="image" style="display: none;"/>
+                        <input type="file" name="photo" id="image" required style="display: none;"/>
                     </div>
                 </a>
             </div>

@@ -87,6 +87,7 @@ class MyAccountController extends Controller
         } else {
             $request->merge(['password' => $user->password]);
         }
+        dd($user->password);
         
         $user->fill($request->all());
         if ($request->hasFile('photo')) {

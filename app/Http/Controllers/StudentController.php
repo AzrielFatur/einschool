@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Spatie\Image\Image;
 use DataTables;
 use App\Grade;
 use App\Student;
+use Spatie\Image\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -54,7 +55,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        $grade = Grade::all();
+        $grade = DB::table('grades')->orderBy('id', 'ASC')->groupBy('class_name')->get();
         return view('admin.student.create', ['title' => 'Add Student', 'grades' => $grade]);
     }
 

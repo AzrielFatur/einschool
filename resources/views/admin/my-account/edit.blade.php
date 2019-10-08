@@ -2,7 +2,7 @@
 
 @section('content')
         <div class="breadcump">
-            <h2 class="float-left">Data Management <small> > Detail Student</small></h2>
+            <h2 class="float-left">My Account <small> > Edit</small></h2>
         </div>
         <br><br>
         @if(session('alert-success'))
