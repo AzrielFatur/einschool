@@ -121,7 +121,6 @@ class TeacherController extends Controller
             $images->move($path,$name);
             $teacher->photo = $name;
         }
-        $teacher->photo = $name;
         // $teacher->name = $request->name;
         // $teacher->nis = $request->nis;
         // $teacher->grade_id = $request->grade_id;

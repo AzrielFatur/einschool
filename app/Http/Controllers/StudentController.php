@@ -121,7 +121,6 @@ class StudentController extends Controller
             $images->move($path,$name);
             $student->photo = $name;
         }
-        $student->photo = $name;
         // $student->name = $request->name;
         // $student->nis = $request->nis;
         // $student->grade_id = $request->grade_id;
